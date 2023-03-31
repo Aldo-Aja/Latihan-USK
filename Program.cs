@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 public class Program {
@@ -99,7 +99,44 @@ public class Program {
                 Console.WriteLine("2.Descending");
                 Console.WriteLine("3.Logout");
                 Console.WriteLine("Silahkan masukan pilihan anda");
+                string input = Console.ReadLine();
                 
+                switch(input)
+                {
+                    case "1":
+                        // Code for sorting in ascending order
+                        var students = new[] { ("Andi", andiData), ("Fina", finaData), ("Budi", budiData) };
+                        var averages = students.Select(s => (name: s.Item1, average: GetAverage(s.Item2))).ToList();
+                        var sortedAverages = averages.OrderBy(a => a.average).ToList();
+
+                        Console.WriteLine("Berikut Data Rata Rata Siswa Dari Terkecil:");
+                        foreach (var average in sortedAverages)
+                        {
+                            Console.WriteLine($"{average.name} ({average.average})");
+                        }
+
+                        break;
+                    case "2":
+                        // Code for sorting in descending order
+                        var students2 = new[] { ("Andi", andiData), ("Fina", finaData), ("Budi", budiData) };
+                        var averages2 = students2.Select(s => (name: s.Item1, average: GetAverage(s.Item2))).ToList();
+                        var sortedAverages2 = averages2.OrderByDescending(a => a.average).ToList();
+
+                        Console.WriteLine("Berikut Data Rata Rata Siswa Dari Terbesar:");
+                        foreach (var average in sortedAverages2)
+                        {
+                            Console.WriteLine($"{average.name} ({average.average})");
+                        }
+                        break;
+                    case "3":
+                        // Code for logout
+                        Console.WriteLine("Logging out...");
+                        break;
+                    default:
+                        Console.WriteLine("Pilihan tidak valid");
+                        break;
+                }
+
             } else if (usernameInput == "Andi") {
                 Console.WriteLine("Selamat Datang Andi\n");
                 for (int i = 0; i < andiData.GetLength(0); i++)
@@ -152,14 +189,17 @@ public class Program {
         Console.ReadKey();
 
     }
+
     static void rata2(string[,] data, string name) {
-    double[] nilai = new double[data.GetLength(0)];
+    double sum = 0;
+    double rata = 0;
     for (int i = 0; i < data.GetLength(0); i++)
     {
-        nilai[i] = Convert.ToDouble(data[i, 1]);
+        sum += double.Parse(data[i, 1]);
     }
-    double rata2 = nilai.Average();
-    Console.WriteLine($"Rata-rata nilai {name}: {rata2:F2}");
+    rata = sum / data.GetLength(0);
+
+    Console.WriteLine($"Rata-rata nilai {name} adalah {rata}");
     }
 
     static (int, int) GetMinMaxValues(string[,] data) {
@@ -202,5 +242,16 @@ public class Program {
             {"OOP", "78"}
         };
     }
+    static double GetAverage(string[,] data)
+{
+    var totalScore = 0.0;
+    for (var i = 0; i < data.GetLength(0); i++)
+    {
+        var score = double.Parse(data[i, 1]);
+        totalScore += score;
+    }
+
+    return totalScore / data.GetLength(0);
 }
 
+}
