@@ -93,12 +93,15 @@ public class Program {
                 }
                 rata2(budiData, "Budi");
 
+                bool ulang = true;
 
+                while(ulang) {
                 Console.WriteLine("---Sorting nilai murid berdasarkan rata rata---");
                 Console.WriteLine("1.Ascending");
                 Console.WriteLine("2.Descending");
                 Console.WriteLine("3.Logout");
                 Console.WriteLine("Silahkan masukan pilihan anda");
+                Console.WriteLine();
                 string input = Console.ReadLine();
                 
                 switch(input)
@@ -114,6 +117,7 @@ public class Program {
                         {
                             Console.WriteLine($"{average.name} ({average.average})");
                         }
+                        Console.WriteLine();
 
                         break;
                     case "2":
@@ -127,15 +131,28 @@ public class Program {
                         {
                             Console.WriteLine($"{average.name} ({average.average})");
                         }
+                        Console.WriteLine();
+
                         break;
                     case "3":
                         // Code for logout
-                        Console.WriteLine("Logging out...");
+                        Console.WriteLine("Logging out...(Harap Tekan Enter)");
                         break;
                     default:
                         Console.WriteLine("Pilihan tidak valid");
                         break;
                 }
+                if (ulang) {
+                    Console.WriteLine("Apakah Ingin Mengulang ?(y/t)");
+                    string ulangInput = Console.ReadLine().ToLower();
+                    if (ulangInput != "y") {
+                        ulang = false;
+                    }
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Harap Tekan Enter");
+                
 
             } else if (usernameInput == "Andi") {
                 Console.WriteLine("Selamat Datang Andi\n");
@@ -255,3 +272,4 @@ public class Program {
 }
 
 }
+
