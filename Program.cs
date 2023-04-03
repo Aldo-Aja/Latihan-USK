@@ -31,7 +31,8 @@ public class Program {
             {"OOP", "78"}
         };
 
-        // Inputan Username dan Password
+        // Inputan
+        
         Console.WriteLine("----------Login----------");
         Console.WriteLine("Username: ");
         string usernameInput = Console.ReadLine();
@@ -49,7 +50,7 @@ public class Program {
             }
         }
 
-        //Menampilkan Hasil Validasi Data
+        //Hasil Validasi 
         if(isValid) {
             Console.WriteLine("Selamat Anda Berhasil Login");
             Console.WriteLine();
@@ -136,7 +137,7 @@ public class Program {
                         break;
                     case "3":
                         // Code for logout
-                        Console.WriteLine("Logging out...(Harap Tekan Enter)");
+                        Console.WriteLine("Logging out...\nHarap Tekan Enter");
                         break;
                     default:
                         Console.WriteLine("Pilihan tidak valid");
@@ -166,7 +167,9 @@ public class Program {
                 }
                 rata2(andiData, "Andi");
                 (int andiMin, int andiMax) = GetMinMaxValues(andiData);
-                Console.WriteLine("Nilai Andi: Minimal = {0},\nMaximal = {1}", andiMin, andiMax);
+                Console.WriteLine("Nilai Andi:");
+                Console.WriteLine("Minimal = {0}", andiMin);
+                Console.WriteLine("Maximal = {0}", andiMax);
                 Console.WriteLine("\nTekan Enter Untuk keluar ");
 
             } else if (usernameInput == "Fina") {
@@ -181,7 +184,9 @@ public class Program {
                 }
                 rata2(finaData, "Fina");
                 (int finaMin, int finaMax) = GetMinMaxValues(finaData);
-                Console.WriteLine("Nilai Fina : Minimal = {0},\nMaximal = {1}", finaMin, finaMax);
+                Console.WriteLine("Nilai Fina:");
+                Console.WriteLine("Minimal = {0}", finaMin);
+                Console.WriteLine("Maximal = {0}", finaMax);
                 Console.WriteLine("\nTekan Enter Untuk keluar ");
 
             } else if (usernameInput == "Budi") {
@@ -196,7 +201,9 @@ public class Program {
                 }
                 rata2(budiData, "Budi");
                 (int budiMin, int budiMax) = GetMinMaxValues(budiData);
-                Console.WriteLine("Nilai Budi: Minimal = {0},\nMaximal = {1}", budiMin, budiMax);
+                Console.WriteLine("Nilai Budi:");
+                Console.WriteLine("Minimal = {0}", budiMin);
+                Console.WriteLine("Maximal = {0}", budiMax);
                 Console.WriteLine("\nTekan Enter Untuk keluar ");
             }
         } else {
@@ -272,4 +279,3 @@ public class Program {
 }
 
 }
-
